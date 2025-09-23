@@ -1,9 +1,10 @@
-import BaseController from "./_base.controller.js";
+import BaseController from "./_base.controller.zod.js";
 import { prisma } from "../models/index.js";
+import { usersSchema } from "../schemas/users.schema.js";
 
 class BaseUserController extends BaseController {
   constructor() {
-    super(prisma.user);
+    super(prisma.user, usersSchema.create);
   }
 }
 
