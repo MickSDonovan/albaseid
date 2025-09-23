@@ -66,6 +66,10 @@ export default class BaseController {
         where: { id },
         data,
       });
+
+      if (!updatedItem) {
+        return res.status(404).json({ errorMessage: "Item not found" });
+      }
       res.json(updatedItem);
     } catch (error) {
       res
