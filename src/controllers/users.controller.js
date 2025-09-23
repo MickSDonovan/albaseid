@@ -4,7 +4,11 @@ import { usersSchema } from "../schemas/users.schema.js";
 
 class BaseUserController extends BaseController {
   constructor() {
-    super(prisma.user, usersSchema.create);
+    super({
+      prismaModel: prisma.user,
+      schemaCreate: usersSchema.create,
+      schemaUpdate: usersSchema.create,
+    });
   }
 }
 
