@@ -13,7 +13,13 @@ export default class BaseController {
 
   async getAll(req, res) {
     try {
-      const items = await this.prismaModel.findMany();
+      const { limit, offset, orderBy, direction } = req.query;
+      console.log("Query Parameters:", limit, offset, orderBy, direction);
+      const items = await this.prismaModel.findMany({
+        take: limit ? parseInt(limit) : undefined,
+        skip: offset ? parseInt(offset) : undefined,
+        orderBy: orderBy ? { [orderBy]: direction || "asc" } : undefined,
+      });
       res.json(items);
     } catch (error) {
       res
