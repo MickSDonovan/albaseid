@@ -15,10 +15,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "workspaces": {
-    "packages": [
-      "api",
-      "client"
-    ]
-  }
+  "workspaces": [
+    "api",
+    "client"
+  ]
 }
