@@ -5,6 +5,7 @@ import { Link, Route, Routes } from "react-router";
 import UploadPage from "../../pages/UploadPage/UploadPage";
 import DownloadUseState from "../../pages/UploadPage/components/DonwloadUseState";
 import Base64 from "../../pages/UploadPage/components/Base64";
+import SendFile from "../../pages/UploadPage/components/SendFile";
 
 // Styles
 import "./App.css";
@@ -23,6 +24,7 @@ function App() {
             {/* Route enfant qui s'affiche dans l'Outlet */}
             <Route path="download-usestate" element={<DownloadUseState />} />
             <Route path="base-64" element={<Base64 />} />
+            <Route path="send-file" element={<SendFile />} />
           </Route>
         </Routes>
       </main>

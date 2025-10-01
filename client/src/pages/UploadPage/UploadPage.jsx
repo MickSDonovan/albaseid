@@ -15,6 +15,12 @@ function UploadPage() {
         <Link to="base-64" className="block mb-4 text-blue-600 hover:underline">
           Base64
         </Link>
+        <Link
+          to="send-file"
+          className="block mb-4 text-blue-600 hover:underline"
+        >
+          Send File
+        </Link>
       </div>
 
       {/* Main Content */}
