@@ -1,7 +1,6 @@
 import { useState } from "react";
-import "./App.css";
 
-function App() {
+function DownloadUseState() {
   const [avatar, setAvatar] = useState(
     "https://img.daisyui.com/images/profile/demo/superperson@192.webp"
   );
@@ -17,10 +16,6 @@ function App() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100">
-      <header className="bg-blue-600 w-full p-4 text-white text-center">
-        <h1>ALBASEID</h1>
-      </header>
-
       <div className="flex-grow flex flex-col items-center pt-5 gap-2">
         <div className="avatar">
           <div className="w-56 rounded">
@@ -49,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default DownloadUseState;
