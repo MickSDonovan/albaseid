@@ -18,8 +18,10 @@
   "dependencies": {
     "@prisma/client": "^6.16.2",
     "albaseid": "file:",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5",
     "zod": "^4.1.11"
   },
   "devDependencies": {

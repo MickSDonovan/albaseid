@@ -7,6 +7,9 @@ function SendFile() {
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(
+    "Bien joué ! Fichier envoyé avec succès."
+  );
   const objectUrlRef = useRef(null);
 
   // 1) Sélection du fichier + aperçu local
@@ -43,7 +46,7 @@ function SendFile() {
       // IMPORTANT: le nom du champ doit être "file" pour matcher ton code formidable
       formData.append("file", file, file.name);
 
-      const res = await fetch("http://localhost:3032/api/upload", {
+      const res = await fetch("http://localhost:3000/api/upload", {
         method: "POST",
         body: formData, // ne PAS mettre manuellement Content-Type
       });
@@ -66,6 +69,7 @@ function SendFile() {
       } else {
         throw new Error("Réponse inattendue du serveur.");
       }
+      console.log("File uploaded successfully");
     } catch (e) {
       setError(e.message || "Erreur lors de l’upload.");
     } finally {
@@ -112,6 +116,7 @@ function SendFile() {
 
         <p>Le but du jeu ici est de télécharger l’image vers le serveur.</p>
         {error && <p className="text-red-600 text-sm">{error}</p>}
+        {success && <p className="text-green-600 text-sm">{success}</p>}
       </div>
     </div>
   );
