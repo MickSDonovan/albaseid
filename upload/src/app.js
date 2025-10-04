@@ -10,6 +10,14 @@ const app = express();
 
 app.use(cors({ origin: process.env.CORS_ORIGIN || "*" }));
 
+app.use((req, res, next) => {
+  const apiKey = req.headers["x-api-key"];
+  if (apiKey !== "supercleultrasecret123") {
+    return res.status(403).json({ error: "Forbidden: invalid API key" });
+  }
+  next();
+});
+
 // Middleware pour parser du JSON
 app.use(express.json());
 
