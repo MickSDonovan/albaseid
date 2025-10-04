@@ -1,4 +1,14 @@
 node_modules
 dist
 .env
-/generated/prisma
+
+.env.docker
+
+# Ignore all generated folder in the project
+generated
+
+# Ignore all log files
+*.log
+
+# Ignore uploads directory
+uploads

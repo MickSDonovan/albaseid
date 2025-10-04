@@ -1,0 +1,48 @@
+{
+  "name": "upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/app.js",
+    "dev": "tsx --watch src/app.ts",
+    "=== PRISMA ===": " ===== PRISMA ===== ",
+    "db:generate": "prisma generate --schema=./src/models/schema.prisma",
+    "db:migrate:dev": "prisma migrate dev --schema=./src/models/schema.prisma --name auto",
+    "db:migrate:reset": "prisma migrate reset --force --schema=./src/models/schema.prisma",
+    "======= DOCKER =======": "========= DOCKER ===========",
+    "docker:up": "docker compose --env-file .env up --build -d",
+    "docker:up:fast": "docker compose --env-file .env up",
+    "docker:down": "docker compose --env-file .env down",
+    "docker:restart": "npm run docker:down && npm run docker:up",
+    "======= DOCKER EXEC =======": "========= DOCKER EXEC ===========",
+    "docker:db:reset": "docker exec -it  zombieland-upload-api npm run db:migrate:reset",
+    "docker:db:migrate:dev": "docker exec -it zombieland-upload-api npm run db:migrate:dev",
+    "docker:db:generate": "docker exec -it zombieland-upload-api npm run db:generate",
+    "docker:db:seed:orders": "docker exec -it zombieland-upload-api npm run db:seed:orders",
+    "docker:db:seed:activities": "docker exec -it zombieland-upload-api npm run db:seed:activities"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/formidable": "^3.4.5",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.6.2",
+    "prisma": "^6.16.3",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "formidable": "^3.5.4",
+    "morgan": "^1.10.1"
+  }
+}

@@ -37,11 +37,21 @@ export const fullNameValidation = z
   })
   .min(1, { error: "Fullname cannot be empty" });
 
+// --------------------  IMAGE (firstname and lastname , example : dupont Marc) ------------------------
+export const imageValidation = z
+  .string({
+    error: (iss) =>
+      iss.input === undefined
+        ? "Image is required."
+        : "Image must be a string.",
+  })
+  .min(1, { error: "Image cannot be empty" });
+
 // ================================== SCHEMAS =================================
 
 export const usersSchema = {
   create: z.object({
-    name: fullNameValidation,
-    email: emailValidation,
+    name: fullNameValidation.optional(),
+    image: imageValidation.optional(),
   }),
 };

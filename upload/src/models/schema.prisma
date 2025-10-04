@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model File {
+  id               Int      @id @default(autoincrement())
+  size             Int      @map("size")
+  newFilename      String   @map("new_filename")
+  originalFilename String   @map("original_filename")
+  mimetype         String   @map("mimetype")
+  url              String   @map("url")        
+
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt      @map("updated_at")
+
+  @@map("file")
+}
+

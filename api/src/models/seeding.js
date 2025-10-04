@@ -6,8 +6,8 @@ async function main() {
 
   for (let i = 0; i < 100; i++) {
     users.push({
-      email: faker.internet.email(),
       name: faker.person.fullName(),
+      image: faker.image.avatar(),
     });
   }
 

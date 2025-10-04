@@ -17,6 +17,7 @@
   "license": "ISC",
   "workspaces": [
     "api",
-    "client"
+    "client",
+    "upload"
   ]
 }
