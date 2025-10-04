@@ -1,10 +1,9 @@
-import type { Request, Response } from "express";
 import formidable from "formidable";
 import path from "node:path";
 import crypto from "node:crypto";
 import { prisma } from "../models/index.js";
 
-export async function uploadFileLocal(req: Request, res: Response) {
+export async function uploadFileLocal(req, res) {
   const uploadDir = path.join(import.meta.dirname, "../../uploads");
 
   const form = formidable({
@@ -28,7 +27,7 @@ export async function uploadFileLocal(req: Request, res: Response) {
     }
 
     // Récupération du fichier uploadé (quel que soit le nom de champ)
-    const file = (files as any).file?.[0] ?? Object.values(files)[0]?.[0];
+    const file = files.file?.[0] ?? Object.values(files)[0]?.[0];
     if (!file) {
       return res.status(400).json({ error: "No valid file found" });
     }

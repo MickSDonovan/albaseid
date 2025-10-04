@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start": "node dist/app.js",
-    "dev": "tsx --watch src/app.ts",
+    "dev": "nodemon ./src/app.js",
     "=== PRISMA ===": " ===== PRISMA ===== ",
     "db:generate": "prisma generate --schema=./src/models/schema.prisma",
     "db:migrate:dev": "prisma migrate dev --schema=./src/models/schema.prisma --name auto",
